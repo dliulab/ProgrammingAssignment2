@@ -1,5 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This is the Assignment 2 for R Programming.
+## The following functions are implemented:
+##
+##	makeCacheMatrix(): a factory function caching inversse matrix.
+##	cacheSolve(): calculate & cache an inverse matrix
+##	inverse(): calculates an inverse matrix
 
 ## This function creates a special "matrix" object 
 ## that can cache its inverse.
