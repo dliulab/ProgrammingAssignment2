@@ -19,13 +19,25 @@ makeCacheMatrix <- function(x = matrix()) {
 	## x has the matrix value
 	## using im to store the inverse matrix 
 	im <- NULL
+	
+	## set(y) save matrix y in the object. 
+	## It also clears the existing inverse cache so that the integrity of the object is
+	## maintained.
         set <- function(y) {
                 x <<- y
                 im <<- NULL
         }
+
+	## get() returns the current matrix
         get <- function() {
 		x
 	}
+
+	## getinverse() checks for existing cache to see if there is an inverse matrix
+	## for the matrix x.
+	## if there is an existing inverse matrix in the cache, the value is returned.
+	## if there is no existing inverse matrix, it calculates the inverse and returns
+	## the value.
         getinverse <- function() {
         	if(!is.null(im)) {
                 	message("getting cached data")
@@ -35,6 +47,8 @@ makeCacheMatrix <- function(x = matrix()) {
         	im <<- inverse(x)
 		return(im)
 	}
+
+	## list of methods supported by the object.
         list(set = set, get = get,
              getinverse = getinverse)
 }
